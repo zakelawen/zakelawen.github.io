@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jinshuo Zhang · 张津硕</title>
+<meta name="description" content="Jinshuo Zhang — MSc student at Qilu University of Technology (Shandong Academy of Sciences). Research in Retrieval-Augmented Generation (RAG) and Mechanistic Interpretability (MI).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-warm:#F7F7F7;
+    --ink:#1C1C1C;
+    --ink-soft:#3A3A3A;
+    --muted:#828282;
+    --line:#EAEAEA;
+    --clay:#C0392B;
+    --clay-deep:#A02D22;
+    --clay-soft:#FAE6E3;
+    --card:#FFFFFF;
+    --shadow:rgba(0,0,0,0.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--clay-soft);color:var(--ink)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(244,241,234,0.82);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  nav .brand{font-family:"Fraunces",serif;font-weight:600;font-size:19px;letter-spacing:-0.01em}
+  nav .brand span{color:var(--clay)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{color:var(--muted);text-decoration:none;font-size:15px;font-family:"Newsreader",serif;transition:color .2s}
+  nav a:hover{color:var(--clay)}
+  @media(max-width:560px){nav ul{gap:16px}nav a{font-size:13px}}
+
+  /* hero */
+  header.hero{padding:78px 0 52px}
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--clay);margin-bottom:20px;
+    opacity:0;animation:rise .7s .05s forwards;
+  }
+  h1{
+    font-family:"Fraunces",serif;font-weight:600;font-size:clamp(40px,7vw,64px);
+    line-height:1.04;letter-spacing:-0.025em;margin-bottom:6px;
+    opacity:0;animation:rise .7s .05s forwards;
+  }
+  h1 .cn{display:block;font-size:0.46em;color:var(--muted);font-weight:400;margin-top:10px;letter-spacing:0.04em}
+  .role{
+    font-size:20px;color:var(--ink-soft);margin-top:22px;max-width:60ch;
+    opacity:0;animation:rise .7s .15s forwards;
+  }
+  .role em{font-style:italic;color:var(--clay-deep)}
+  .meta{
+    margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;
+    opacity:0;animation:rise .7s .28s forwards;
+  }
+  .pill{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;
+    padding:6px 13px;border:1px solid var(--line);border-radius:100px;
+    color:var(--ink-soft);background:var(--card);
+  }
+  .pill.accent{background:var(--clay);color:#fff;border-color:var(--clay)}
+
+  /* sections */
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+  .sec-num{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--clay)}
+  h2{font-family:"Fraunces",serif;font-weight:600;font-size:27px;letter-spacing:-0.015em}
+  p{margin-bottom:16px;color:var(--ink-soft)}
+  p:last-child{margin-bottom:0}
+  .lead{font-size:19.5px}
+  a.link{color:var(--clay-deep);text-decoration:none;border-bottom:1px solid var(--clay-soft);transition:border-color .2s}
+  a.link:hover{border-color:var(--clay-deep)}
+
+  .tag{
+    font-family:"Fraunces",serif;font-weight:600;color:var(--ink);
+    background:var(--clay-soft);padding:1px 9px;border-radius:5px;font-size:0.94em;
+  }
+
+  /* publications */
+  .pub{
+    background:var(--card);border:1px solid var(--line);border-radius:8px;
+    padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  }
+  .pub::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--clay);
+    transform:scaleY(0);transform-origin:top;transition:transform .3s ease;
+  }
+  .pub:hover{transform:translateY(-2px);box-shadow:0 8px 22px var(--shadow);border-color:#ddd}
+  .pub:hover::before{transform:scaleY(1)}
+  .pub-top{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:11px}
+  .venue{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;
+    padding:3px 10px;border-radius:6px;background:var(--bg-warm);color:var(--ink);letter-spacing:0.02em}
+  .ccf{font-family:"JetBrains Mono",monospace;font-size:11px;padding:3px 8px;border-radius:6px;color:#fff}
+  .ccf.a{background:#9C3318}.ccf.b{background:#C96442}.ccf.c{background:#B68A4E}
+  .status{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+  .status.accepted{color:var(--clay-deep)}
+  .pub h3{font-family:"Fraunces",serif;font-weight:600;font-size:19.5px;line-height:1.3;
+    letter-spacing:-0.01em;margin-bottom:8px;color:var(--ink)}
+  .authors{font-size:15px;color:var(--muted);margin-bottom:11px}
+  .authors b{color:var(--ink);font-weight:600}
+  .pub-desc{font-size:15.5px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media(max-width:520px){.contact-grid{grid-template-columns:1fr}}
+  .cta{
+    display:flex;align-items:center;gap:13px;padding:17px 20px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    text-decoration:none;color:var(--ink);transition:all .22s ease;
+  }
+  .cta:hover{border-color:var(--clay);transform:translateY(-2px);box-shadow:0 10px 24px var(--shadow)}
+  .cta .ico{width:38px;height:38px;border-radius:9px;background:var(--clay-soft);
+    display:grid;place-items:center;flex-shrink:0}
+  .cta .ico svg{width:19px;height:19px;stroke:var(--clay-deep);fill:none;stroke-width:1.8}
+  .cta .t{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+  .cta .v{font-size:16px;color:var(--ink)}
+
+  footer{padding:42px 0 60px;border-top:1px solid var(--line);text-align:center}
+  footer p{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted)}
+
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  h1,.role{transform:translateY(14px)}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">JZ<span>.</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Jinshuo Zhang<span class="cn">张津硕</span></h1>
+    <p class="role">Working at the intersection of <em>Retrieval-Augmented Generation</em> and <em>Mechanistic Interpretability</em> — trying to understand not just what large language models do, but <em>why</em>.</p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+    <p class="lead">I am <strong>Jinshuo Zhang</strong>, an MSc student at <strong>Qilu University of Technology (Shandong Academy of Sciences)</strong>. My research centers on <span class="tag">Retrieval-Augmented Generation (RAG)</span> and <span class="tag">Mechanistic Interpretability (MI)</span>.</p>
+    <p>On the RAG side, I focus on two core questions: <strong>when</strong> a large language model should retrieve external knowledge, and <strong>how</strong> it can make more reliable use of the context it retrieves.</p>
+    <p>I am equally drawn to mechanistic interpretability. Today's large language models are remarkably capable, yet their inner workings remain largely a black box. I want to understand what a model is really "thinking" and why it produces a particular output — because I believe that only by truly reading the internal mechanisms of these models can we build AI systems that are <strong>safer, more reliable, and more trustworthy</strong>.</p>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Publications</h2></div>
+
+    <article class="pub">
+      <div class="pub-top">
+        <span class="venue">Findings of ACL 2026</span>
+        <span class="ccf a">CCF-A</span>
+        <span class="status accepted">● Accepted</span>
+      </div>
+      <h3>D²-RAG: Dual-Decision Retrieval-Augmented Generation via Multi-Dimensional Uncertainty and Utility-Aware Decoding</h3>
+      <p class="authors"><b>Jinshuo Zhang</b>, Xiaoding Zhou, Weiyu Zhang*, Guoqiang Chen, Ying Lian, Xiaoyang Meng, Yonghe Chen, Hongjiao Guan, Jiasheng Si, Wenpeng Lu</p>
+      <p class="pub-desc">Addressing two key questions in RAG — <em>when</em> to retrieve and <em>how</em> to use retrieved results — we propose a Dual-Decision RAG framework. It fuses uncertainty signals from probability distributions, internal states, output consistency, and self-checking confidence to decide whether a query needs external knowledge. A utility-aware contrastive decoding strategy then adaptively modulates the decoding process according to the quality of the retrieved context, improving the use of reliable information while suppressing retrieval noise.</p>
+    </article>
+
+    <article class="pub">
+      <div class="pub-top">
+        <span class="venue">EMNLP 2026</span>
+        <span class="ccf b">CCF-B</span>
+        <span class="status">○ Under Review</span>
+      </div>
+      <h3>Steering LLM Representations for Retrieved-Context Utility Assessment</h3>
+      <p class="authors"><b>Jinshuo Zhang</b>, Xiaoding Zhou, Yan Teng, Weitian Zhang, Guoqiang Chen, Ying Lian, Jiasheng Si, Weiyu Zhang*, Wenpeng Lu</p>
+      <p class="pub-desc">Semantic relevance often fails to reflect whether a retrieved document actually helps answer a question. We propose a representation-based method for assessing retrieved-context utility: by injecting a trainable Context Separator Vector into a frozen LLM, we sharpen the representational separability between answer-supporting and distracting documents, and predict document utility with a prototype classifier. The resulting utility score can further drive context gating at generation time, reducing the interference of low-quality retrievals.</p>
+    </article>
+
+    <article class="pub">
+      <div class="pub-top">
+        <span class="venue">CSCWD 2026</span>
+        <span class="ccf c">CCF-C</span>
+        <span class="status accepted">● Accepted</span>
+      </div>
+      <h3>CKG-RAG: Enhancing LLM Reasoning in Medical Domain Using Contextual Knowledge Graphs</h3>
+      <p class="authors"><b>Jinshuo Zhang</b>, Xiaoding Zhou, Xinxiao Qiao, Weiyu Zhang*, Guoqiang Chen, Xiaoli Zheng, Cong Liu, Wenpeng Lu</p>
+      <p class="pub-desc">In medical question answering, conventional RAG tends to introduce redundant context and cause the "lost-in-the-middle" problem in LLMs. We propose a retrieval-augmented generation framework built on contextual knowledge graphs: reliable external knowledge is retrieved from multiple medical sources, and an LLM extracts entities and relations to construct a question-specific contextual knowledge graph. A GNN-MLP mapping module then encodes the graph into Graph Tokens, injected as a soft prompt to strengthen the model's structured reasoning.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Jinshuo Zhang (张津硕) · Built with care · Hosted on GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
